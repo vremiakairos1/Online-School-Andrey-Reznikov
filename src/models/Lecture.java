@@ -6,8 +6,12 @@ public class Lecture {
     private Homework nameHomework;
     private AdditionalMaterial nameMaterials;
 
-    public Lecture()
+    public int courseId;
+
+    public Lecture (int idLectures, int courseId)
     {
+        this.idLectures = idLectures;
+        this.courseId = courseId;
         counterLectures++;
     }
 }
