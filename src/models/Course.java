@@ -7,20 +7,9 @@ public class Course {
     private Student lastNameStudent;
     private Lecture nameLecture;
 
-    /* public Course(int idCourse1)
+    public Course(int idCourse1)
     {
         this.idCourse1 = idCourse1;
         counterCourse1++;
-    } */
-
-      // HW 6 way 2
-      public Course(int idCourse1)
-    {
-        this.idCourse1 = idCourse1;
-        counterCourse1++;
-    }
-    // HW 6 way 2
-    public int getId(){
-          return idCourse1;
     }
 }
