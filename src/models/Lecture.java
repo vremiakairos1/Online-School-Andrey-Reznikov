@@ -10,4 +10,10 @@ public class Lecture {
     {
         counterLectures++;
     }
+
+    //HW 6 way 3
+    public static Lecture createLecture (int idLectures, int courseId)
+    {
+        return new Lecture(idLectures, courseId);
+    }
 }
