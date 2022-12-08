@@ -1,6 +1,8 @@
 import models.Course;
 import models.Lecture;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args)
     {
@@ -29,6 +31,125 @@ public class Main {
         //HW 6 way 3
         Lecture eighthLecture = Lecture.createLecture(8, firstCourse.idCourse1);
         System.out.println(eighthLecture.courseId);
+
+        //7
+        Scanner scanner = new Scanner(System.in);
+        /*System.out.println("Выберите категорию");
+        System.out.println("1 Курсы");
+        System.out.println("2 Учителя");
+        System.out.println("3 Студенты");
+        System.out.println("4 Лекции");
+        int category = scanner.nextInt();
+
+        switch (category)
+        {
+            case 1:
+                System.out.println("Вы выбрали Курсы");
+                System.out.println("5 Вернуться в меню");
+
+                System.out.println("Выберите категорию");
+                System.out.println("1 Курсы");
+                System.out.println("2 Учителя");
+                System.out.println("3 Студенты");
+                System.out.println("4 Лекции");
+                break;
+
+            case 2:
+                System.out.println("Вы выбрали Учителя");
+                break;
+
+            case 3:
+                System.out.println("Вы выбрали Студенты");
+                break;
+
+            case 4:
+                System.out.println("Вы выбрали Лекции");
+                break;
+
+            default:
+                    while (category == 0) {
+                    System.out.println("Пожалуйста выберите из предложенных цифр");
+                    category = Course.Menu();
+                }
+
+                    while (category > 4) {
+                        System.out.println("Пожалуйста выберите из предложенных цифр");
+                        category = Course.Menu();
+                    }
+
+                    while (category == 1) {
+                    System.out.println("Вы выбрали Курсы");
+                    category++;
+                    }
+
+                    while (category == 2) {
+                    System.out.println("Вы выбрали Учителя");
+                    category++;
+                    }
+
+                    while (category == 3) {
+                    System.out.println("Вы выбрали Студенты");
+                    category++;
+                    }
+
+                    while (category == 3) {
+                    System.out.println("Вы выбрали Лекции");
+                    category++;
+                    }
+        }*/
+
+        System.out.println("Создать лекцию?");
+        System.out.println("0 Нет");
+        System.out.println("1 Да");
+        int selected = scanner.nextInt();
+        System.out.println("Вы выбрали создать лекцию");
+        System.out.println("Введите ID лекции");
+        int idLectures = scanner.nextInt();
+        System.out.println("Введите ID курса");
+        //беру название переменной из класса Лекция конструктора для лекции
+        int idCourse1 = scanner.nextInt();
+
+        switch (selected)
+        {
+            case 0:
+                System.out.println("Вы выбрали не создавать лекцию");
+                break;
+            case 1:
+
+                    System.out.println("Вы выбрали создать лекцию");
+                    System.out.println("Введите ID лекции");
+                    idLectures = scanner.nextInt();
+                    System.out.println("Введите ID курса");
+                    //беру название переменной из класса Лекция конструктора для лекции
+                    //int courseId = scanner.nextInt();
+                    //Lecture nLecture = new Lecture(idLectures,courseId);
+                    //беру название переменной из класса Курс конструктора для лекции
+                    idCourse1 = scanner.nextInt();
+                    Lecture nLecture = new Lecture(idLectures,firstCourse.idCourse1);
+                    System.out.println(nLecture);
+                    System.out.println(firstCourse.idCourse1);
+                    System.out.println(Lecture.counterLectures);
+                    System.out.println("Создать еще лекцию");
+                    System.out.println("0 Нет");
+                    System.out.println("2 Да");
+                    int createLecture = scanner.nextInt();
+                    if (createLecture == 2) {
+                        System.out.println("Введите ID лекции");
+                        idLectures = scanner.nextInt();
+                        System.out.println("Введите ID курса");
+                        //беру название переменной из класса Курс конструктора для лекции
+                        idCourse1 = scanner.nextInt();
+                        Lecture n1Lecture = new Lecture(idLectures,firstCourse.idCourse1);
+                        System.out.println(n1Lecture);
+                        System.out.println(firstCourse.idCourse1);
+                        System.out.println(Lecture.counterLectures);
+                    }
+
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + selected);
+        }
+
 
     }
 }
