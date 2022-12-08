@@ -21,3 +21,4 @@ public class Lecture {
         return new Lecture(idLectures, courseId);
     }
 }
+
