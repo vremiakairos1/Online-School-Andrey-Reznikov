@@ -20,5 +20,14 @@ public class Lecture {
     {
         return new Lecture(idLectures, courseId);
     }
+
+    //7
+    @Override
+    public String toString() {
+        return "Lecture {" +
+                "idLectures=" + idLectures +
+                ", courseId=" + courseId +
+                '}';
+    }//7
 }
 
