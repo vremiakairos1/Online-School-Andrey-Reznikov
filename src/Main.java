@@ -35,7 +35,7 @@ public class Main {
         //7
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Выберите категорию");
+        /*System.out.println("Выберите категорию");
         System.out.println("1 Курсы");
         System.out.println("2 Учителя");
         System.out.println("3 Студенты");
@@ -76,10 +76,10 @@ public class Main {
                     category = Menu();
                 }
 
-                /*while (category > 4) {
+                *//*while (category > 4) {
                     System.out.println("Пожалуйста выберите из предложенных цифр");
                     category = Menu();
-                }*/
+                }*//*
 
                 while (category == 1) {
                     System.out.println("Вы выбрали Курсы");
@@ -100,7 +100,7 @@ public class Main {
                     System.out.println("Вы выбрали Лекции");
                     category++;
                 }
-        }
+        }*/
 
         System.out.println("Создать лекцию?");
         System.out.println("0 Нет");
@@ -129,11 +129,17 @@ public class Main {
                     System.out.println(nLecture);
                     System.out.println(firstCourse.idCourse1);
                     System.out.println(Lecture.counterLectures);
-                    System.out.println("Создать еще лекцию");
+
+                    /*System.out.println("Создать еще лекцию");
                     System.out.println("0 Нет");
-                    System.out.println("2 Да");
+                    System.out.println("2 Да");*/
+                dialog2(); // 8 Вынес диалог для создания повторной лекции в метод
                     int createLecture = scanner.nextInt();
-                    if (createLecture == 2) {
+
+                    // 8. В 7 задаче было ограниченное количество возможностей для создания лекции
+                    // было через if. Изменил через цикл чтобы можно былло достигнуть какого-то числа
+                    // созданных лекций.
+                    while (createLecture == 2) {
                         System.out.println("Введите ID лекции");
                         idLectures = scanner.nextInt();
                         //System.out.println("Введите ID курса");
@@ -143,9 +149,17 @@ public class Main {
                         System.out.println(n1Lecture);
                         System.out.println(firstCourse.idCourse1);
                         System.out.println(Lecture.counterLectures);
+                        //8 Добавляю лимит на создание лекции и автоматическое завершение программы.
+                        // Счетчик лекций объявлен в классе Лекция. Если он достигает 9, то завершить программу
+                        if (Lecture.counterLectures == 9) {
+                            System.out.println("Вы достигли лимита по созданию лекций. Программа завершилась");
+                            System.exit(0);//завершить программу
+                            }
 
+                        dialog2();
+                        // цикл работает с этой переменной. Если она не равна 2, то программа прерывается
+                        createLecture = scanner.nextInt();
                     }
-
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + selected);
@@ -157,7 +171,7 @@ scanner.close();
     }
     //7
     static Scanner scanner = new Scanner(System.in);
-    public static int Menu () {
+    public static int Menu() {
         System.out.println("Выберите категорию");
         System.out.println("1 Курсы");
         System.out.println("2 Учителя");
@@ -167,6 +181,18 @@ scanner.close();
     }
 
     //7
+
+    public static void dialog2() {
+        System.out.println("Создать еще лекцию");
+        System.out.println("0 Нет");
+        System.out.println("2 Да");
+        }
+
+    public static void dialogExit() {
+        System.out.println("Завершить программу?");
+        System.out.println("0 Да");
+        System.out.println("3 Вернуться в меню категорий");
+    }
 
     /*public static int dialog(Scanner scanner) {
         System.out.println("Создать лекцию?");
