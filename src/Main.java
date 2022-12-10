@@ -68,15 +68,18 @@ public class Main {
                 break;
 
             default:
-                while (category == 0) {
+                // Эта строка исправила ошибку. Если передавался ноль, то всё работало.
+                // А если другие цифры кроме категории, а потом ноль, то не работало.
+                // Пока выбор равен нулю или больше 4 все работат правильно
+                while (category == 0 || category > 4) {
                     System.out.println("Пожалуйста выберите из предложенных цифр");
                     category = Menu();
                 }
 
-                while (category > 4) {
+                /*while (category > 4) {
                     System.out.println("Пожалуйста выберите из предложенных цифр");
                     category = Menu();
-                }
+                }*/
 
                 while (category == 1) {
                     System.out.println("Вы выбрали Курсы");
