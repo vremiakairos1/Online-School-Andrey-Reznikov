@@ -33,14 +33,20 @@ public class Main {
         System.out.println(eighthLecture.courseId);
 
         //7
+
         Scanner scanner = new Scanner(System.in);
+        int category;//для выбора категории меню
+        int selected;//для выбора создания лекции в первый раз
+        int idLectures;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
+        int createLecture;//для выбора создания лекции во второй раз
+        int exit;//для возврата в меню или завершения
 
         /*System.out.println("Выберите категорию");
         System.out.println("1 Курсы");
         System.out.println("2 Учителя");
         System.out.println("3 Студенты");
         System.out.println("4 Лекции");
-        int category = scanner.nextInt();
+        category = scanner.nextInt();
 
         switch (category)
         {
@@ -105,8 +111,7 @@ public class Main {
         System.out.println("Создать лекцию?");
         System.out.println("0 Нет");
         System.out.println("1 Да");
-        int selected = scanner.nextInt();
-        int idLectures;
+        selected = scanner.nextInt();
 
 
         //selected = dialog(scanner);
@@ -134,7 +139,7 @@ public class Main {
                     System.out.println("0 Нет");
                     System.out.println("2 Да");*/
                 dialog2(); // 8 Вынес диалог для создания повторной лекции в метод
-                    int createLecture = scanner.nextInt();
+                     createLecture = scanner.nextInt();
 
                     // 8. В 7 задаче было ограниченное количество возможностей для создания лекции
                     // было через if. Изменил через цикл чтобы можно былло достигнуть какого-то числа
@@ -149,23 +154,27 @@ public class Main {
                         System.out.println(n1Lecture);
                         System.out.println(firstCourse.idCourse1);
                         System.out.println(Lecture.counterLectures);
-                        //8 Добавляю лимит на создание лекции и автоматическое завершение программы.
-                        // Счетчик лекций объявлен в классе Лекция. Если он достигает 9, то завершить программу
-                        if (Lecture.counterLectures == 9) {
-                            System.out.println("Вы достигли лимита по созданию лекций. Программа завершилась");
-                            System.exit(0);//завершить программу
-                            }
-
                         dialog2();
                         // цикл работает с этой переменной. Если она не равна 2, то программа прерывается
                         createLecture = scanner.nextInt();
+                        //8 Добавляю лимит на создание лекции и автоматическое завершение программы.
+                        // Счетчик лекций объявлен в классе Лекция. Если он достигает 9, то завершить программу
+                        if (Lecture.counterLectures == 9) {
+                            System.out.println("Вы достигли лимита по созданию лекций.");
+                            //System.exit(0);//завершить программу
+                            }break;
+
                     }
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + selected);
 
         }
-
+        //После создания лекций или вернуться в меню или завершить программу.
+        dialogExit();
+        exit = scanner.nextInt();
+        while (exit == 0 || exit > 1 ) {break;}
+        while (exit == 1) {Menu();}
 scanner.close();
 
     }
@@ -191,7 +200,7 @@ scanner.close();
     public static void dialogExit() {
         System.out.println("Завершить программу?");
         System.out.println("0 Да");
-        System.out.println("3 Вернуться в меню категорий");
+        System.out.println("1 Вернуться в меню категорий");
     }
 
     /*public static int dialog(Scanner scanner) {
