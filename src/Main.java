@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static Course firstCourse;//для доступа к ID курса из другого класса
-    // или не из области видимости метода main
+                                     // или не из области видимости метода main
     public static void main(String[] args)
 
     {
@@ -38,7 +38,7 @@ public class Main {
         //7
 
         //Scanner scanner = new Scanner(System.in);
-        int exit;//для возврата в меню или завершения
+       int exit;//для возврата в меню или завершения
         //menu(); - создает меню для выбора категорий
         //choiceOfCategory(); - обрабатывает выбор категорий
         //dialog1(); - первый диалог про создание лекции
@@ -47,33 +47,33 @@ public class Main {
         //dialog2(); - диалог создать еще лекцию
         //dialogExit(); - после создания лекций вернуться в меню или завершить программу
 
-        menu();
-        choiceOfCategory();
+menu();
+choiceOfCategory();
 
-        dialog1();
-        severalLectures();
+dialog1();
+severalLectures();
 
 //После создания лекций или вернуться в меню или завершить программу.
-        dialogExit();
+dialogExit();
 
 //Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
-        exit = scanner.nextInt();
-        while (exit == 0 || exit > 1 ) {break;}
-        if (exit == 1) {
-            menu();
-            choiceOfCategory();
-            dialog1();
-            severalLectures();
-            dialogExit();
-        }
-        exit = scanner.nextInt();
-        while (exit == 0 || exit > 1 ) {break;}
+exit = scanner.nextInt();
+while (exit == 0 || exit > 1 ) {break;}
+if (exit == 1) {
+    menu();
+    choiceOfCategory();
+    dialog1();
+    severalLectures();
+    dialogExit();
+}
+exit = scanner.nextInt();
+while (exit == 0 || exit > 1 ) {break;}
 //scanner.close();
 
     }
     //------ область видимости за пределами класса мейн
     static int category;//для выбора категории мен.
-    // Объявляем за пределами метода main чтобы создать и воспользоваться методами
+                        // Объявляем за пределами метода main чтобы создать и воспользоваться методами
     static int selected;//для выбора создания лекции в первый раз
     static int idLectures;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
     static int createLecture;//для выбора создания лекции во второй раз
@@ -189,12 +189,12 @@ public class Main {
         }
     }
     public static void orderLecture(){
-        System.out.println("Введите ID лекции");
-        idLectures = scanner.nextInt();
-        Lecture nLecture = new Lecture(idLectures,firstCourse.idCourse1);
-        System.out.println(nLecture);
-        System.out.println(firstCourse.idCourse1);
-        System.out.println(Lecture.counterLectures);
+    System.out.println("Введите ID лекции");
+    idLectures = scanner.nextInt();
+    Lecture nLecture = new Lecture(idLectures,firstCourse.idCourse1);
+    System.out.println(nLecture);
+    System.out.println(firstCourse.idCourse1);
+    System.out.println(Lecture.counterLectures);
     }
 
     public static void dialog2() {
@@ -202,7 +202,7 @@ public class Main {
         System.out.println("0 Нет");
         System.out.println("2 Да");
         createLecture = scanner.nextInt();
-    }
+        }
 
     public static void dialogExit() {
         System.out.println("Завершить программу?");
