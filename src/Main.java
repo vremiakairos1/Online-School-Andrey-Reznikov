@@ -111,7 +111,7 @@ public class Main {
 
         RepositoryLecture.createCourseLectures();
         System.out.println(Arrays.toString(increaseArray));
-
+        // ---- 9
 
 //scanner.close();
 
