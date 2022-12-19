@@ -63,10 +63,10 @@ public class Main {
         dialog1();
         severalLectures();
 
-//После создания лекций или вернуться в меню или завершить программу.
+        //После создания лекций или вернуться в меню или завершить программу.
         dialogExit();
 
-//Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
+        //Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
         exit = scanner.nextInt();
         while (exit == 0 || exit > 1) {
             break;
@@ -102,15 +102,16 @@ public class Main {
             RepositoryLecture.increaseSIZE();
         }
         // проверка увеличения размера переменной и размера массива
-        System.out.println(RepositoryLecture.newSize);
-        System.out.println(increaseArray.length);
+        System.out.println("Переменная содержит " + RepositoryLecture.newSize);
+        System.out.println("Массив содержит " + increaseArray.length);
 
         //переношу элементы из исходного массива и проверяю, что перенеслось и есть ли 3 пустых элемента
         System.arraycopy(arrayLecture, 0, increaseArray, 0, arrayLecture.length);
         System.out.println(Arrays.toString(increaseArray));
 
         RepositoryLecture.createCourseLectures();
-        System.out.println(Arrays.toString(increaseArray));
+        dialogArray2();
+        showArray2();
         // ---- 9
 
 //scanner.close();
@@ -122,11 +123,12 @@ public class Main {
     // Объявляем за пределами метода main чтобы создать и воспользоваться методами
     static int selected;//для выбора создания лекции в первый раз
     static int idLectures;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
-    static int createLecture;//для выбора создания лекции во второй раз
+    static int createLecture;//для выбора создания лекции во второй раз*/
     //7
     static Scanner scanner = new Scanner(System.in);
+    static int elementsArray2;// отображать элементы 2-ого массива
 
-    public static void menu() {
+    /*public static void menu() {
         System.out.println("Выберите категорию");
         System.out.println("1 Курсы");
         System.out.println("2 Учителя");
@@ -260,7 +262,26 @@ public class Main {
         System.out.println("1 Вернуться в меню категорий");
     }//8*/
 
-    //9
+    //9 ----
+    public static void dialogArray2() {
+        System.out.println("Вывести элементы 2-ого массива?");
+        System.out.println("0 Нет");
+        System.out.println("1 Да");
+        elementsArray2 = scanner.nextInt();
+    }
+
+    public static void showArray2() {
+        switch (elementsArray2) {
+            case 0:
+            break;
+
+            case 1:
+                System.out.println(Arrays.toString(increaseArray));
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + elementsArray2);
+        }
+    }//9 ----
 
 }
 
