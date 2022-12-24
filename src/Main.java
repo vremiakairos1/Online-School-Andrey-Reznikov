@@ -1,6 +1,8 @@
 import models.Course;
 import models.Lecture;
 import repository.RepositoryLecture;
+import service.ServiceLecture;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -276,7 +278,8 @@ public class Main {
             break;
 
             case 1:
-                System.out.println(Arrays.toString(increaseArray));
+                ServiceLecture.showElements(); //вызов элементов массива через цикл for each
+                // System.out.println(Arrays.toString(increaseArray)); //вызов елементов массива через системные методы
                 break;
             default:
                 throw new IllegalArgumentException("Unexpected value: " + elementsArray2);
