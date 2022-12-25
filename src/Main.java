@@ -10,8 +10,8 @@ import static repository.RepositoryLecture.*;
 
 public class Main {
     public static Course firstCourse;//для доступа к ID курса из другого класса
+                                     // или не из области видимости метода main
 
-    // или не из области видимости метода main
     public static void main(String[] args) {
         new RepositoryLecture();//9
 
@@ -23,7 +23,8 @@ public class Main {
         RepositoryLecture.addLecture(new Lecture(19, 29));
 
         Lecture firstLecture = new Lecture(1, firstCourse.idCourse1);
-        System.out.println(Arrays.toString(arrayLecture));
+        ServiceLecture.showElements();// показать элементы массива
+        // System.out.println(Arrays.toString(arrayLecture));
         /*Lecture secondLecture = new Lecture(2, 2);
         Lecture thirdLecture = new Lecture(3,1);
 
@@ -59,6 +60,7 @@ public class Main {
         //dialog2(); - диалог создать еще лекцию
         //dialogExit(); - после создания лекций вернуться в меню или завершить программу
 
+
         *//*menu();
         choiceOfCategory();*//*
 
@@ -86,34 +88,23 @@ public class Main {
         }*/
 
         //-----9
-        int fullOF=0;// для проверки заполненности всего массива
-        for (int i=0; i<arrayLecture.length; i++) {
-            fullOF = 0;
-            fullOF = i;
-            if (arrayLecture[i] != null) {
-                fullOF++;
-                if (fullOF == arrayLecture.length) {
-                    System.out.println("Количество заполненных элементов " + fullOF);
-                    break;
-                }
-            }
-        }
+        RepositoryLecture.fullArrayLecture();
         System.out.println("Массив заполнен. Теперь размер массива увеличивается");//должно быть за пределами цикла
 
+        //если массив заполнился, то увеличить его и перенести элементы
         if (fullOF == arrayLecture.length) {
             RepositoryLecture.increaseSIZE();
         }
         // проверка увеличения размера переменной и размера массива
         System.out.println("Переменная содержит " + RepositoryLecture.newSize);
-        System.out.println("Массив содержит " + increaseArray.length);
+        System.out.println("Массив содержит " + arrayLecture.length);
 
         //переношу элементы из исходного массива и проверяю, что перенеслось и есть ли 3 пустых элемента
-        System.arraycopy(arrayLecture, 0, increaseArray, 0, arrayLecture.length);
-        System.out.println(Arrays.toString(increaseArray));
+        ServiceLecture.showElements();
 
-        RepositoryLecture.createCourseLectures();
-        dialogArray2();
-        showArray2();
+        RepositoryLecture.createCourseLectures();// создать 1 объект курса и три лекции
+        dialogArray2();// желаете вывести все элементы массива
+        showArray2(); // switch для диалога
         // ---- 9
 
 //scanner.close();
@@ -279,7 +270,7 @@ public class Main {
 
             case 1:
                 ServiceLecture.showElements(); //вызов элементов массива через цикл for each
-                // System.out.println(Arrays.toString(increaseArray)); //вызов елементов массива через системные методы
+                //System.out.println(Arrays.toString(increaseArray)); //вызов елементов массива через системные методы
                 break;
             default:
                 throw new IllegalArgumentException("Unexpected value: " + elementsArray2);

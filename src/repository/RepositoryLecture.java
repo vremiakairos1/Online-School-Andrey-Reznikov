@@ -28,10 +28,27 @@ public class RepositoryLecture {
             break;
         }
     }
+    public static int fullOF=0;// для проверки заполненности всего исходного массива
+    public static void fullArrayLecture(){
+        for (int i=0; i<arrayLecture.length; i++) {
+            fullOF = 0;
+            fullOF = i;
+            if (arrayLecture[i] != null) {
+                fullOF++;
+                if (fullOF == arrayLecture.length) {
+                    System.out.println("Количество заполненных элементов " + fullOF);
+                    break;
+                }
+            }
+        }
+    }
+
 
     public static void increaseSIZE(){
         newSize = (SIZE_ARRAY * 3) /2 +1;
         increaseArray = new Lecture[newSize];
+        System.arraycopy(arrayLecture, 0, increaseArray, 0, arrayLecture.length);
+        arrayLecture = increaseArray;
     }
 
     public static void createCourseLectures(){
@@ -41,14 +58,14 @@ public class RepositoryLecture {
         RepositoryLecture.newAddLecture(new Lecture(8,2));
     }
 
-    // заполнение нового массива тремя элементами начиная с индекса 5
+    // заполнение массива тремя новыми элементами начиная с индекса 5. Если элемент не равен пустоте - заполни
     public static void newAddLecture(Lecture newFillIN) {
 
-        for (int i = 5; i<increaseArray.length; i++) {
-            if (increaseArray[i] != null) {
+        for (int i = 0; i<arrayLecture.length; i++) {
+            if (arrayLecture[i] != null) {
                 continue;
             }
-            increaseArray[i] = newFillIN;
+            arrayLecture[i] = newFillIN;
             break;
         }
     }
