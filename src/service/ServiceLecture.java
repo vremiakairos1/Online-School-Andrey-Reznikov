@@ -10,5 +10,11 @@ public class ServiceLecture {
         for (Lecture elements: arrayLecture) {
             System.out.println(elements);
         }
-    }
+    }//цикл выводит все элементы с двумя параметрами ID лекции и ID курса
+
+    public static void showIDLecture(){
+        for (Lecture elements: arrayLecture) {
+            System.out.println("ID Lecture " + elements.getIdLectures());
+        }
+    }//цикл выводит все элементы с параметром ID лекции в конце работы с массивами
 }

@@ -269,7 +269,7 @@ public class Main {
             break;
 
             case 1:
-                ServiceLecture.showElements(); //вызов элементов массива через цикл for each
+                ServiceLecture.showIDLecture(); //вызов элементов массива через цикл for each
                 //System.out.println(Arrays.toString(increaseArray)); //вызов елементов массива через системные методы
                 break;
             default:

@@ -29,5 +29,38 @@ public class Lecture {
                 ", courseId=" + courseId +
                 '}';
     }//7
+
+    public int getIdLectures() {
+        return idLectures;
+    }
+
+    //9
+    public void setIdLectures(int idLectures) {
+        this.idLectures = idLectures;
+    }
+
+    public static int getCounterLectures() {
+        return counterLectures;
+    }
+
+    public static void setCounterLectures(int counterLectures) {
+        Lecture.counterLectures = counterLectures;
+    }
+
+    public AdditionalMaterial getNameMaterials() {
+        return nameMaterials;
+    }
+
+    public void setNameMaterials(AdditionalMaterial nameMaterials) {
+        this.nameMaterials = nameMaterials;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }//9
 }
 
