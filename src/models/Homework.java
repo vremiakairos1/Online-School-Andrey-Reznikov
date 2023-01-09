@@ -1,11 +1,13 @@
 package models;
 
-public class Homework {
-    private int idHomework;
+public class Homework extends Superclass {
+
     public static int counterHomework;
 
-    public Homework()
+    public Homework(int ID)
     {
+        super (ID);
         counterHomework++;
-    }
+    }// 10
+
 }

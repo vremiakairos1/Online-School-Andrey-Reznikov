@@ -2,14 +2,16 @@ package repository;
 
 import models.Course;
 import models.Lecture;
+import models.Superclass;
 
-public class RepositoryLecture {
+public class RepositoryLecture extends SuperRepository {
 
     private static int SIZE_ARRAY = 5;
 
-    public static Lecture[] arrayLecture;//исходный массив
-    public static int newSize;//переменная для нового массива
-    public static Lecture[] increaseArray;// увеличенный массив
+    private static Lecture[] arrayLecture;//исходный массив
+    private static int newSize;//переменная для нового массива
+    private static Lecture[] increaseArray;// увеличенный массив
+    private static int fullOF=0;// для проверки заполненности всего исходного массива
 
     public RepositoryLecture() {
 
@@ -18,6 +20,7 @@ public class RepositoryLecture {
 
     }
     //заполнение исходного массива
+
     public static void addLecture(Lecture fillIN) {
 
         for (int i = 0; i<arrayLecture.length; i++) {
@@ -28,7 +31,7 @@ public class RepositoryLecture {
             break;
         }
     }
-    public static int fullOF=0;// для проверки заполненности всего исходного массива
+
     public static void fullArrayLecture(){
         for (int i=0; i<arrayLecture.length; i++) {
             fullOF = 0;
@@ -67,6 +70,71 @@ public class RepositoryLecture {
             }
             arrayLecture[i] = newFillIN;
             break;
+        }
+    }
+    // 10 74-103
+    public static int getSizeArray() {
+        return SIZE_ARRAY;
+    }
+
+    public static void setSizeArray(int sizeArray) {
+        SIZE_ARRAY = sizeArray;
+    }
+
+    public static Lecture[] getArrayLecture() {
+        return arrayLecture;
+    }
+
+
+    public static int getNewSize() {
+        return newSize;
+    }
+
+    public static void setNewSize(int newSize) {
+        RepositoryLecture.newSize = newSize;
+    }
+
+    public static Lecture[] getIncreaseArray() {
+        return increaseArray;
+    }
+
+    public static int getFullOF() {
+        return fullOF;
+    }
+
+    public static void setFullOF(int fullOF) {
+        RepositoryLecture.fullOF = fullOF;
+    }
+
+    @Override
+    public Lecture[] getALL() {
+        return arrayLecture;
+    }
+
+   /* @Override
+    public void add(Superclass fillIN) {
+        super.add(fillIN);////
+    }*/
+
+    @Override
+    public void getByID(int ID) {
+        for (Superclass openLecture : arrayLecture) {
+            if (openLecture != null) {
+                if (ID==openLecture.getID()) {
+                    System.out.println(openLecture);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void deleteByID(int ID) {
+        for (int i = 0; i < arrayLecture.length; i++) {
+            if (arrayLecture[i] != null) {
+                if (ID == arrayLecture[i].getID()) {
+                    arrayLecture[i] = null;
+                }
+            }
         }
     }
 }

@@ -1,11 +1,13 @@
 package models;
 
-public class AdditionalMaterial {
-    private int idMaterials;
+public class AdditionalMaterial extends Superclass {
+
     public static int counterMaterials;
 
-    public AdditionalMaterial()
+    public AdditionalMaterial(int ID)
     {
+        super (ID);
         counterMaterials++;
     }
+
 }

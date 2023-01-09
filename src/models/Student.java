@@ -1,11 +1,13 @@
 package models;
 
-public class Student {
-    private int idStudents;
-    public static int counterStudents;
+public class Student extends Superclass {
 
-    public Student()
+    public static int counterStudents;
+    // 10
+    public Student(int ID)
     {
+        super (ID);
         counterStudents++;
     }
+
 }
