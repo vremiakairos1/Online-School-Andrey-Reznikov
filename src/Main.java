@@ -13,14 +13,14 @@ public class Main {
                                      // или не из области видимости метода main
 
     public static void main(String[] args) {
-        new RepositoryLecture();//9
+        RepositoryLecture firstObject = new RepositoryLecture();//10
 
         firstCourse = new Course(10);
-        RepositoryLecture.addLecture(new Lecture(18, 28));
-        RepositoryLecture.addLecture(new Lecture(19, 29));
-        RepositoryLecture.addLecture(new Lecture(18, 28));
-        RepositoryLecture.addLecture(new Lecture(19, 29));
-        RepositoryLecture.addLecture(new Lecture(19, 29));
+        firstObject.add(new Lecture(18, 28));//10
+        firstObject.add(new Lecture(19, 29));//10
+        firstObject.add(new Lecture(18, 28));//10
+        firstObject.add(new Lecture(19, 29));//10
+        firstObject.add(new Lecture(19, 29));//10
 
         Lecture firstLecture = new Lecture(1, firstCourse.getID());
         ServiceLecture.showElements();// показать элементы массива

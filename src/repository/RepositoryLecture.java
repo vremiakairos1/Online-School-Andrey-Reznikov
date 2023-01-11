@@ -21,7 +21,7 @@ public class RepositoryLecture extends SuperRepository {
     }
     //заполнение исходного массива
 
-    public static void addLecture(Lecture fillIN) {
+    /*public static void addLecture(Lecture fillIN) {
 
         for (int i = 0; i<arrayLecture.length; i++) {
             if (arrayLecture[i] != null) {
@@ -30,7 +30,7 @@ public class RepositoryLecture extends SuperRepository {
             arrayLecture[i] = fillIN;
             break;
         }
-    }
+    }*/
 
     public static void fullArrayLecture(){
         for (int i=0; i<arrayLecture.length; i++) {
@@ -111,11 +111,19 @@ public class RepositoryLecture extends SuperRepository {
         return arrayLecture;
     }
 
-   /* @Override
+    //метод имеет параметр суперкласса моделей. Перегружает метод из супер-репозитория. Заполняет массив в этом классе
+    @Override
     public void add(Superclass fillIN) {
-        super.add(fillIN);////
-    }*/
+        for (int i = 0; i<arrayLecture.length; i++) {
+            if (arrayLecture[i] != null) {
+                continue;
+            }
+            arrayLecture[i] = (Lecture) fillIN;
+            break;
+        }
+    }
 
+    //метод сравнивает ID для открытия объекта. Перегружает метод из супер-репозитория.
     @Override
     public void getByID(int ID) {
         for (Superclass openLecture : arrayLecture) {
@@ -127,6 +135,7 @@ public class RepositoryLecture extends SuperRepository {
         }
     }
 
+    //метод удаляет объект с таким ID, но не сдвигает элементы. Перегружает метод из супер-репозитория.
     @Override
     public void deleteByID(int ID) {
         for (int i = 0; i < arrayLecture.length; i++) {
