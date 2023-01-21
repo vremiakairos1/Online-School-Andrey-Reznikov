@@ -10,6 +10,7 @@ import service.ServicePerson;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import static repository.RepositoryLecture.*;
 
@@ -113,7 +114,15 @@ public class Main {
         RepositoryLecture.showArray2(); // switch для диалога
         // ---- 9
 
-        Pattern pattern = Pattern.compile("[a-zA-Z]");
+        String regexName = "^[a-zA-Z]+$";// имя фамилия
+        String regexEmail = "^\\w+@\\w+\\.\\w+$";// Email буквы@буквы.домен
+        String regexPhone = "^\\d{3}\\-\\d{3}\\-\\d{2}\\-\\d{2}$";// Phone 050-000-11-22
+        Pattern pattern = Pattern.compile(regexPhone);// regexName regexEmail
+        System.out.println("Введите имя латиницей");
+        String name = scanner.nextLine();
+        Matcher matcher = pattern.matcher(name);
+        boolean b = matcher.matches();
+        System.out.println(b);
 
 
 //scanner.close();
