@@ -1,8 +1,10 @@
 package repository;
 
+import com.sun.tools.javac.Main;
 import models.Course;
 import models.Lecture;
 import models.Superclass;
+import service.ServiceLecture;
 
 public class RepositoryLecture extends SuperRepository {
 
@@ -55,10 +57,10 @@ public class RepositoryLecture extends SuperRepository {
     }
 
     public static void createCourseLectures(){
-        Course secondCourse = new Course(2);
-        RepositoryLecture.newAddLecture(new Lecture(6,2));
-        RepositoryLecture.newAddLecture(new Lecture(7,2));
-        RepositoryLecture.newAddLecture(new Lecture(8,2));
+        Course secondCourse = new Course(2,"Java Beginner");
+        //RepositoryLecture.newAddLecture(new Lecture(6, "Lecture 6", "sdfg", 2,1));//11-12
+        //RepositoryLecture.newAddLecture(new Lecture(7, "Lecture 7", "sdfg", 2,1));//11-12
+        //RepositoryLecture.newAddLecture(new Lecture(8, "Lecture 8", "sdfg", 2,1));//11-12
     }
 
     // заполнение массива тремя новыми элементами начиная с индекса 5. Если элемент не равен пустоте - заполни
@@ -106,6 +108,29 @@ public class RepositoryLecture extends SuperRepository {
         RepositoryLecture.fullOF = fullOF;
     }
 
+    //9 метод отображает диалог для необходимости вывода всех элементов массива
+    public static void dialogArray2() {
+        System.out.println("Вывести элементы 2-ого массива?");
+        System.out.println("0 Нет");
+        System.out.println("1 Да");
+    }
+
+    //9 метод выводит все элементы увеличенного массива
+    public static int elementsArray2;
+    public static void showArray2() {
+        switch (elementsArray2) {
+            case 0:
+            break;
+
+            case 1:
+                ServiceLecture.showElements(); //вызов элементов массива через цикл for each 11
+                //System.out.println(Arrays.toString(increaseArray)); //вызов елементов массива через системные методы
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + elementsArray2);
+        }
+    }//9
+
     @Override
     public Lecture[] getALL() {
         return arrayLecture;
@@ -146,5 +171,18 @@ public class RepositoryLecture extends SuperRepository {
             }
         }
     }
+
+   //11 пока не выходит
+    public void changeParameter(int personID) {
+        for (Superclass openLecture : arrayLecture) {
+            if (openLecture != null) {
+                if (personID==openLecture.getID()) {
+                    System.out.println(openLecture);
+                }
+            }
+        }
+    }
+
+
 }
 

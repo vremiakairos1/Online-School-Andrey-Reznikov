@@ -6,22 +6,27 @@ public class Lecture extends Superclass {
     private Homework nameHomework;
     private AdditionalMaterial nameMaterials;
 
+   private static int personId;//11
+   public Role role;
+
     private int courseId;
 
-    public Lecture (int ID, int courseId)
+    private String name;//12
+    private String description;//12
+
+    public Lecture (int ID, String name, String description, int courseId, int personId, Role role)//11-12
     {
         super(ID);
         //this.idLectures = idLectures;
         this.courseId = courseId;
+        this.personId = personId;//11
+        this.role = role;
+        this.name = name;
+        this.name = description;
         counterLectures++;
     }
 
 
-    //HW 6 way 3
-    public static Lecture createLecture (int idLectures, int courseId)
-    {
-        return new Lecture(idLectures, courseId);
-    }
 
     //7
     @Override
@@ -29,6 +34,8 @@ public class Lecture extends Superclass {
         return "Lecture {" +
                 "idLectures=" + getID() +
                 ", courseId=" + courseId +
+                ", personId=" + personId + //11
+                ", role=" + role + //11
                 '}';
     }//7
 
@@ -54,6 +61,16 @@ public class Lecture extends Superclass {
         this.courseId = courseId;
     }//10
 
+    //11
+    public static int getPersonId() {
+        return personId;
+    }
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
 

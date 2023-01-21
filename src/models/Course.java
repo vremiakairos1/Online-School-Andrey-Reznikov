@@ -6,6 +6,7 @@ public class Course extends Superclass {
     private Teacher lastNameTeacher;
     private Student lastNameStudent;
     private Lecture nameLecture;
+    private String name;//12
 
     /* public Course(int idCourse1)
     {
@@ -14,8 +15,9 @@ public class Course extends Superclass {
     } */
 
     // HW 6 way 2
-    public Course(int ID)
+    public Course(int ID, String name)
     { super (ID);
+        this.name = name;
         counterCourse1++;
     }
 
@@ -27,7 +29,6 @@ public class Course extends Superclass {
     public Teacher getLastNameTeacher() {
         return lastNameTeacher;
     }
-
     public void setLastNameTeacher(Teacher lastNameTeacher) {
         this.lastNameTeacher = lastNameTeacher;
     }
@@ -35,7 +36,6 @@ public class Course extends Superclass {
     public Student getLastNameStudent() {
         return lastNameStudent;
     }
-
     public void setLastNameStudent(Student lastNameStudent) {
         this.lastNameStudent = lastNameStudent;
     }
@@ -43,9 +43,15 @@ public class Course extends Superclass {
     public Lecture getNameLecture() {
         return nameLecture;
     }
-
     public void setNameLecture(Lecture nameLecture) {
         this.nameLecture = nameLecture;
     }//10
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 

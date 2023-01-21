@@ -1,10 +1,15 @@
 import models.Course;
 import models.Lecture;
+import models.Person;
+import models.Role;
 import repository.RepositoryLecture;
 import service.ServiceLecture;
+import service.ServiceMenu;
+import service.ServicePerson;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import static repository.RepositoryLecture.*;
 
@@ -15,50 +20,50 @@ public class Main {
     public static void main(String[] args) {
         RepositoryLecture firstObject = new RepositoryLecture();//10
 
-        firstCourse = new Course(10);
-        firstObject.add(new Lecture(18, 28));//10
-        firstObject.add(new Lecture(19, 29));//10
-        firstObject.add(new Lecture(18, 28));//10
-        firstObject.add(new Lecture(19, 29));//10
-        firstObject.add(new Lecture(19, 29));//10
+        firstCourse = new Course(1, "Java Basics");
+        Person firstTeacher = ServicePerson.createTeacher(1,"lastname", "firstname","1111111111", "",1,Role.TEACHER);//11
 
-        Lecture firstLecture = new Lecture(1, firstCourse.getID());
+
+        //firstObject.add(new Lecture(1, "Lecture 1", "sdfg", 28,firstTeacher.getID()));//11-12
+        firstObject.add(new Lecture(2, "Lecture 2", "sdfg", 29,1, Role.NULL));//11
+        //firstObject.add(new Lecture(3, "Lecture 3", "sdfg", 28,1));//11
+        //firstObject.add(new Lecture(4, "Lecture 4", "sdfg", 29,1));//11
+        //firstObject.add(new Lecture(5, "Lecture 5", "sdfg", 29,1));//11
+
+        //Lecture firstLecture = new Lecture(1, firstCourse.getID(),1);//11
         ServiceLecture.showElements();// показать элементы массива
         // System.out.println(Arrays.toString(arrayLecture));
-        /*Lecture secondLecture = new Lecture(2, 2);
-        Lecture thirdLecture = new Lecture(3,1);
+        //Lecture secondLecture = new Lecture(2, 2,1);
+        //Lecture thirdLecture = new Lecture(3,1,1);
 
 
         //Homework 5 feature
-        Lecture fourthLecture = new Lecture(4,1);
-        Lecture fifthLecture = new Lecture(5,1);
-        Lecture sixthLecture = new Lecture(6,2);
+        //Lecture fourthLecture = new Lecture(4,1,1);
+        //Lecture fifthLecture = new Lecture(5,1,1);
+        //Lecture sixthLecture = new Lecture(6,2,1);
 
-        System.out.println(sixthLecture.getCourseId());
+        //System.out.println(sixthLecture.getCourseId());
         System.out.println(Lecture.getCounterLectures());
 
 
         // HW 6 way 2
-        Lecture seventhLecture = new Lecture(7, firstCourse.getID());
+        //Lecture seventhLecture = new Lecture(7, firstCourse.getID(),1,);
         // HW 6 way 2
-        System.out.println(seventhLecture.getCourseId());
+        //System.out.println(seventhLecture.getCourseId());
 
-
-        //HW 6 way 3
-        Lecture eighthLecture = Lecture.createLecture(8, firstCourse.getID());
-        System.out.println(eighthLecture.getCourseId());
 
         //7
 
         Scanner scanner = new Scanner(System.in);
-        int exit;//для возврата в меню или завершения
+        /*int exit;//для возврата в меню или завершения
         menu(); //- создает меню для выбора категорий
         choiceOfCategory(); //- обрабатывает выбор категорий
         dialog1(); //- первый диалог про создание лекции
         severalLectures(); //- создает несколько лекций
         orderLecture(); //- запрашиваем и выводим данные лекции
-        dialog2(); //- диалог создать еще лекцию
-        dialogExit(); //- после создания лекций вернуться в меню или завершить программу
+        ServiceMenu.dialog2(); //- диалог создать еще лекцию
+        createLecture = scanner.nextInt();
+        ServiceMenu.dialogExit(); //- после создания лекций вернуться в меню или завершить программу
 
 
         menu();
@@ -68,7 +73,7 @@ public class Main {
         severalLectures();
 
         //После создания лекций или вернуться в меню или завершить программу.
-        dialogExit();
+        ServiceMenu.dialogExit();
 
         //Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
         exit = scanner.nextInt();
@@ -80,7 +85,7 @@ public class Main {
             choiceOfCategory();
             dialog1();
             severalLectures();
-            dialogExit();
+            ServiceMenu.dialogExit();
         }
         exit = scanner.nextInt();
         while (exit == 0 || exit > 1) {
@@ -103,25 +108,29 @@ public class Main {
         ServiceLecture.showElements();
 
         RepositoryLecture.createCourseLectures();// создать 1 объект курса и три лекции
-        dialogArray2();// желаете вывести все элементы массива
-        showArray2(); // switch для диалога
+        RepositoryLecture.dialogArray2();// желаете вывести все элементы массива
+        RepositoryLecture.elementsArray2 = scanner.nextInt();
+        RepositoryLecture.showArray2(); // switch для диалога
         // ---- 9
+
+        Pattern pattern = Pattern.compile("[a-zA-Z]");
+
 
 //scanner.close();
 
     }
 
       //------ область видимости за пределами класса мейн
-/*      static int category;//для выбора категории мен.
+      static int category;//для выбора категории мен.
       // Объявляем за пределами метода main чтобы создать и воспользоваться методами
       static int selected;//для выбора создания лекции в первый раз
       static int idLectures;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
-      static int createLecture;//для выбора создания лекции во второй раз*/
+      static int createLecture;//для выбора создания лекции во второй раз
     //7
       static Scanner scanner = new Scanner(System.in);
-      static int elementsArray2;// отображать элементы 2-ого массива
+      //static int elementsArray2;// отображать элементы 2-ого массива
 
-/*    public static void menu() {
+    public static void menu() {
            System.out.println("Выберите категорию");
            System.out.println("1 Курсы");
            System.out.println("2 Учителя");
@@ -209,12 +218,14 @@ public class Main {
                 System.out.println("Вы выбрали создать лекцию");
                 //беру название переменной из класса Лекция конструктора для лекции
                 orderLecture();
-                dialog2();
+                ServiceMenu.dialog2();
+                createLecture = scanner.nextInt();
                 // В повторном диалоге использую 2 чтобы отличать
                 // Пока выбор = 2 создаем новую лекцию
                 while (createLecture == 2) {
                     orderLecture();
-                    dialog2();
+                    ServiceMenu.dialog2();
+                    createLecture = scanner.nextInt();
 
                     //8 Добавляю лимит на создание лекции и автоматическое завершение программы.
                     // Счетчик лекций объявлен в классе Лекция. Если он достигает 9, то завершить программу
@@ -234,48 +245,13 @@ public class Main {
     public static void orderLecture() {
         System.out.println("Введите ID лекции");
         idLectures = scanner.nextInt();
-        Lecture nLecture = new Lecture(idLectures, firstCourse.getID());
-        RepositoryLecture.addLecture(nLecture);
-        System.out.println(nLecture);
+        //Lecture nLecture = new Lecture(idLectures, firstCourse.getID(),1);
+        //RepositoryLecture.add(nLecture);
+        //System.out.println(nLecture);
         System.out.println(firstCourse.getID());
         System.out.println(Lecture.getCounterLectures());
         System.out.println(Arrays.toString(RepositoryLecture.getArrayLecture()));
     }
-
-    public static void dialog2() {
-        System.out.println("Создать еще лекцию");
-        System.out.println("0 Нет");
-        System.out.println("2 Да");
-        createLecture = scanner.nextInt();
-    }
-
-  public static void dialogExit() {
-      System.out.println("Завершить программу?");
-      System.out.println("0 Да");
-      System.out.println("1 Вернуться в меню категорий");
-    }//8*/
-
-    //9 ----
-    public static void dialogArray2() {
-        System.out.println("Вывести элементы 2-ого массива?");
-        System.out.println("0 Нет");
-        System.out.println("1 Да");
-        elementsArray2 = scanner.nextInt();
-    }
-
-    public static void showArray2() {
-        switch (elementsArray2) {
-            case 0:
-            break;
-
-            case 1:
-                ServiceLecture.showIDLecture(); //вызов элементов массива через цикл for each
-                //System.out.println(Arrays.toString(increaseArray)); //вызов елементов массива через системные методы
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected value: " + elementsArray2);
-        }
-    }//9 ----
 
 }
 
