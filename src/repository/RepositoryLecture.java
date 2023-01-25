@@ -21,18 +21,6 @@ public class RepositoryLecture extends SuperRepository {
         this.increaseArray = new Lecture[newSize];// передали переменную для нового массива
 
     }
-    //заполнение исходного массива
-
-    /*public static void addLecture(Lecture fillIN) {
-
-        for (int i = 0; i<arrayLecture.length; i++) {
-            if (arrayLecture[i] != null) {
-                continue;
-            }
-            arrayLecture[i] = fillIN;
-            break;
-        }
-    }*/
 
     public static void fullArrayLecture(){
         for (int i=0; i<arrayLecture.length; i++) {
