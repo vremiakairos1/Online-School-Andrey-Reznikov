@@ -56,7 +56,7 @@ public class Main {
         //7
 
         Scanner scanner = new Scanner(System.in);
-        /*int exit;//для возврата в меню или завершения
+        int exit;//для возврата в меню или завершения
         menu(); //- создает меню для выбора категорий
         choiceOfCategory(); //- обрабатывает выбор категорий
         dialog1(); //- первый диалог про создание лекции
@@ -91,7 +91,7 @@ public class Main {
         exit = scanner.nextInt();
         while (exit == 0 || exit > 1) {
             break;
-        }*/
+        }
 
         //-----9
         RepositoryLecture.fullArrayLecture();
@@ -127,6 +127,11 @@ public class Main {
 
 //scanner.close();
 
+        ServiceMenu.menu();
+        ServiceMenu.dialog1(); //- первый диалог про создание лекции
+//        ServiceMenu.orderLecture(); //- запрашиваем и выводим данные лекции
+//        ServiceMenu.dialog2(); //- диалог создать еще лекцию
+        ServiceMenu.dialogExit(); //- после создания лекций вернуться в меню или завершить программу
     }
 
       //------ область видимости за пределами класса мейн

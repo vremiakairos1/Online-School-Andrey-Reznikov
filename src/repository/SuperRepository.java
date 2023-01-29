@@ -14,11 +14,10 @@ public class SuperRepository {
     //метод с параметром суперкласса моделей для заполнения массива в супер-репозитории
     public void add (Superclass fillIN) {
         for (int i = 0; i < arrayRepository.length; i++) {
-            if (arrayRepository[i] != null) {
-                continue;
+            if (arrayRepository[i] == null) {
+                arrayRepository[i] = fillIN;
+                break;
             }
-            arrayRepository[i] = fillIN;
-            break;
         }
     }
 

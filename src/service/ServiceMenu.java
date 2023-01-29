@@ -9,11 +9,11 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class ServiceMenu {
-
-    /*static int category;//для выбора категории мен.
+    public static Course firstCourse = new Course(1, "Java Basics");
+    static int category;//для выбора категории мен.
     // Объявляем за пределами метода main чтобы создать и воспользоваться методами
-    static int selected;//для выбора создания лекции в первый раз
-    static int idLectures;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
+    static int lectureId;//для выбора создания лекции в первый раз
+    static int idLecture;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
     static int createLecture;//для выбора создания лекции во второй раз
     //7
     static Scanner scanner = new Scanner(System.in);
@@ -43,6 +43,7 @@ public class ServiceMenu {
 
             case 2:
                 System.out.println("Вы выбрали Учителя");
+                ServicePerson.dialogCreateTeacher();
                 break;
 
             case 3:
@@ -51,6 +52,7 @@ public class ServiceMenu {
 
             case 4:
                 System.out.println("Вы выбрали Лекции");
+                orderLecture();
                 break;
 
             default:
@@ -93,16 +95,24 @@ public class ServiceMenu {
         System.out.println("Создать лекцию?");
         System.out.println("0 Нет");
         System.out.println("1 Да");
-        selected = scanner.nextInt();
+        lectureId = scanner.nextInt();
+        severalLectures(lectureId);
     }
 
+    public static void dialogUpdateLecture() {
+        System.out.println("Введите ID лекции, которую хотите отредактировать?");
+        lectureId = scanner.nextInt();
+
+
+    }//11
+
     //7
-    public static void severalLectures() {
+    public static void severalLectures(int selected) {
 
         switch (selected) {
             case 0:
                 System.out.println("Вы выбрали не создавать лекцию");
-                break;
+                return;
             case 1:
                 System.out.println("Вы выбрали создать лекцию");
                 //беру название переменной из класса Лекция конструктора для лекции
@@ -133,20 +143,25 @@ public class ServiceMenu {
 
     public static void orderLecture() {
         System.out.println("Введите ID лекции");
-        idLectures = scanner.nextInt();
-        Lecture nLecture = new Lecture(idLectures, firstCourse.getID(),1);
-        RepositoryLecture.add(nLecture);
+        idLecture = scanner.nextInt();
+        Lecture nLecture = new Lecture(idLecture, firstCourse.getID());
+        new RepositoryLecture().add(nLecture);
         //System.out.println(nLecture);
         System.out.println(firstCourse.getID());
         System.out.println(Lecture.getCounterLectures());
         System.out.println(Arrays.toString(RepositoryLecture.getArrayLecture()));
-    }*/
+        dialog2();
+    }
 
     //8
     public static void dialog2() {
         System.out.println("Создать еще лекцию");
         System.out.println("0 Нет");
         System.out.println("2 Да");
+        int choice = scanner.nextInt();
+        if (choice == 2) {
+            orderLecture();
+        }
     }
 
     //8

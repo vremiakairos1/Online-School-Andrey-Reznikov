@@ -13,11 +13,10 @@ public class RepositoryPerson extends SuperRepository {
     //метод с параметром суперкласса моделей для заполнения массива в репозитории Person
     public void add (Superclass fillIN) {
         for (int i = 0; i < arrayPerson.length; i++) {
-            if (arrayPerson[i] != null) {
-                continue;
+            if (arrayPerson[i] == null) {
+                arrayPerson[i] = fillIN;
+                break;
             }
-            arrayPerson[i] = fillIN;
-            break;
         }
     }
 

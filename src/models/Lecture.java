@@ -26,6 +26,12 @@ public class Lecture extends Superclass {
         counterLectures++;
     }
 
+    public Lecture (int id, int courseId) {
+        super(id);
+        this.courseId = courseId;
+        this.courseId = 1;
+        counterLectures++;
+    }
 
 
     //7

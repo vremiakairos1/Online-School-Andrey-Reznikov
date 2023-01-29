@@ -66,7 +66,6 @@ public class RepositoryLecture extends SuperRepository {
     public static int getSizeArray() {
         return SIZE_ARRAY;
     }
-
     public static void setSizeArray(int sizeArray) {
         SIZE_ARRAY = sizeArray;
     }
@@ -79,7 +78,6 @@ public class RepositoryLecture extends SuperRepository {
     public static int getNewSize() {
         return newSize;
     }
-
     public static void setNewSize(int newSize) {
         RepositoryLecture.newSize = newSize;
     }
@@ -91,7 +89,6 @@ public class RepositoryLecture extends SuperRepository {
     public static int getFullOF() {
         return fullOF;
     }
-
     public static void setFullOF(int fullOF) {
         RepositoryLecture.fullOF = fullOF;
     }
@@ -128,11 +125,10 @@ public class RepositoryLecture extends SuperRepository {
     @Override
     public void add(Superclass fillIN) {
         for (int i = 0; i<arrayLecture.length; i++) {
-            if (arrayLecture[i] != null) {
-                continue;
+            if (arrayLecture[i] == null) {
+                arrayLecture[i] = (Lecture) fillIN;
+                break;
             }
-            arrayLecture[i] = (Lecture) fillIN;
-            break;
         }
     }
 

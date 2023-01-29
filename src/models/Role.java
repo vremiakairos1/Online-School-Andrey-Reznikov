@@ -1,6 +1,8 @@
 package models;
 
     public enum Role {
-        NULL, TEACHER, STUDENT;
+        NULL,
+        TEACHER,
+        STUDENT;
     }
 

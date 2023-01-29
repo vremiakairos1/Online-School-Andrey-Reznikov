@@ -5,8 +5,8 @@ import static models.Role.TEACHER;
 public class Person extends Superclass {
 
     private static int counter = 0;
-    private final int courseId;
-    private final Role role = TEACHER;
+    private int courseId;
+    private Role role;
     private String lastname = "Default";//12
     private String firstname = "Default";//12
     private String phone = "Default";//12
@@ -30,4 +30,8 @@ public class Person extends Superclass {
         //this.role = role;
     }
 
+    public Person(int id) {
+        super(id);
+        this.role = TEACHER;
+    }
 }

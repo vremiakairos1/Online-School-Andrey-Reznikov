@@ -8,12 +8,6 @@ public class Course extends Superclass {
     private Lecture nameLecture;
     private String name;//12
 
-    /* public Course(int idCourse1)
-    {
-        this.idCourse1 = idCourse1;
-        counterCourse1++;
-    } */
-
     // HW 6 way 2
     public Course(int ID, String name)
     { super (ID);
@@ -22,10 +16,6 @@ public class Course extends Superclass {
     }
 
     //10
-
-
-
-
     public Teacher getLastNameTeacher() {
         return lastNameTeacher;
     }
