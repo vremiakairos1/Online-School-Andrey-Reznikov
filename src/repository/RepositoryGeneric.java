@@ -10,7 +10,7 @@ public class RepositoryGeneric <E extends Superclass> {
     private static int newSize;//переменная для нового массива
     private static Superclass[] increaseArray;// увеличенный массив
     private static int fullOF=0;// для проверки заполненности всего исходного массива
-    private int size = 0;
+
 
     public RepositoryGeneric() {
 
@@ -45,13 +45,13 @@ public class RepositoryGeneric <E extends Superclass> {
 
     // метод возвращает размер массива
     public int size() {
-        return size;
+        return newSize;
     }
 
     // метод проверяет на пустоту весь массив
     public boolean isEmpty() {
         boolean emptySize = false;
-        if (size == 0) {
+        if (newSize == 0) {
             emptySize = true;
         }
         return emptySize;
@@ -78,11 +78,17 @@ public class RepositoryGeneric <E extends Superclass> {
         }
     }
     // метод добавляет элементы по индексу
-    public void addIndex (int index,E fillIN) {
+    public void addIndex(int index,E fillIN) {
+        for (int i = 0; i<arraySuperclass.length; i++) {
+            if (arraySuperclass[index] == null) {
+                arraySuperclass[index] = (E) fillIN;
+                break;
+            }
+        }
 
     }
     // метод удаляет элемент по индексу, но не сдвиагает элементы
-    public void remove (int index){
+    public void remove(int index){
         for (int i = 0; i < arraySuperclass.length; i++) {
             if (arraySuperclass[i] != null) {
                 if (index == arraySuperclass[i].getID()) {
