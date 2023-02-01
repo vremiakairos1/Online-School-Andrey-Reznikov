@@ -57,12 +57,12 @@ public class RepositoryGeneric <E extends Superclass> {
         return emptySize;
     }
     // метод получает индекс массива - в задании в параметре говорится int index 60??
-    public E getIndex(Superclass index){
+    public E getIndex(int index){
         for (int i = 0; i < arraySuperclass.length; i++) {
-            if (arraySuperclass[i]==index){
+            if (i==index){
                 break;
             }
-            return (E) index;
+            return (E) arraySuperclass[i];
         }
         return null;
     }

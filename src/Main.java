@@ -2,6 +2,7 @@ import models.Course;
 import models.Lecture;
 import models.Person;
 import models.Role;
+import repository.RepositoryGeneric;
 import repository.RepositoryLecture;
 import service.ServiceLecture;
 import service.ServiceMenu;
@@ -20,41 +21,29 @@ public class Main {
 
     public static void main(String[] args) {
         RepositoryLecture firstObject = new RepositoryLecture();//10
-
+        RepositoryGeneric genericObject = new RepositoryGeneric();//13
         firstCourse = new Course(1, "Java Basics");
-        Person firstTeacher = ServicePerson.createTeacher(1,"lastname", "firstname","1111111111", "",1,Role.TEACHER);//11
+        Person firstTeacher = ServicePerson.createTeacher(1,"lastname", "firstname","1111111111", "",1, Role.TEACHER);//11
 
 
-        //firstObject.add(new Lecture(1, "Lecture 1", "sdfg", 28,firstTeacher.getID()));//11-12
-        firstObject.add(new Lecture(2, "Lecture 2", "sdfg", 29,1, Role.NULL));//11
-        //firstObject.add(new Lecture(3, "Lecture 3", "sdfg", 28,1));//11
-        //firstObject.add(new Lecture(4, "Lecture 4", "sdfg", 29,1));//11
-        //firstObject.add(new Lecture(5, "Lecture 5", "sdfg", 29,1));//11
+        firstObject.add(new Lecture(1, "Lecture 1", "something", 1, 1, Role.NULL));//11-12
+        firstObject.add(new Lecture(2, "Lecture 2", "something", 1, 1, Role.NULL));//11
+        firstObject.add(new Lecture(3, "Lecture 3", "something", 1, 1, Role.NULL));//11
+        firstObject.add(new Lecture(4, "Lecture 4", "something", 1, 1, Role.NULL));//11
+        firstObject.add(new Lecture(5, "Lecture 5", "something", 1, 1, Role.NULL));//11
 
-        //Lecture firstLecture = new Lecture(1, firstCourse.getID(),1);//11
+        genericObject.add(new Lecture(1, "Lecture 1", "something", 1, 1, Role.NULL));//13
+        genericObject.add(new Lecture(2, "Lecture 2", "something", 1, 1, Role.NULL));//13
+        genericObject.add(new Lecture(3, "Lecture 3", "something", 1, 1, Role.NULL));//13
+        genericObject.add(new Lecture(4, "Lecture 4", "something", 1, 1, Role.NULL));//13
+        genericObject.add(new Lecture(5, "Lecture 5", "something", 1, 1, Role.NULL));//13
+
         ServiceLecture.showElements();// показать элементы массива
-        // System.out.println(Arrays.toString(arrayLecture));
-        //Lecture secondLecture = new Lecture(2, 2,1);
-        //Lecture thirdLecture = new Lecture(3,1,1);
 
-
-        //Homework 5 feature
-        //Lecture fourthLecture = new Lecture(4,1,1);
-        //Lecture fifthLecture = new Lecture(5,1,1);
-        //Lecture sixthLecture = new Lecture(6,2,1);
-
-        //System.out.println(sixthLecture.getCourseId());
         System.out.println(Lecture.getCounterLectures());
 
 
-        // HW 6 way 2
-        //Lecture seventhLecture = new Lecture(7, firstCourse.getID(),1,);
-        // HW 6 way 2
-        //System.out.println(seventhLecture.getCourseId());
-
-
         //7
-
         Scanner scanner = new Scanner(System.in);
         int exit;//для возврата в меню или завершения
         menu(); //- создает меню для выбора категорий
@@ -114,7 +103,8 @@ public class Main {
         RepositoryLecture.showArray2(); // switch для диалога
         // ---- 9
 
-        String regexName = "^[a-zA-Z]+$";// имя фамилия
+        //12
+        String regexName = "^[a-zA-Z]+$";// имя фамилия задание 12 про regex
         String regexEmail = "^\\w+@\\w+\\.\\w+$";// Email буквы@буквы.домен
         String regexPhone = "^\\d{3}\\-\\d{3}\\-\\d{2}\\-\\d{2}$";// Phone 050-000-11-22
         Pattern pattern = Pattern.compile(regexPhone);// regexName regexEmail
@@ -122,7 +112,7 @@ public class Main {
         String name = scanner.nextLine();
         Matcher matcher = pattern.matcher(name);
         boolean b = matcher.matches();
-        System.out.println(b);
+        System.out.println(b);//12
 
 
 //scanner.close();
