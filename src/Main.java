@@ -54,7 +54,7 @@ public class Main {
         ServiceMenu.dialog2(); //- диалог создать еще лекцию
         createLecture = scanner.nextInt();
         ServiceMenu.dialogExit(); //- после создания лекций вернуться в меню или завершить программу
-
+        //
 
         menu();
         choiceOfCategory();
