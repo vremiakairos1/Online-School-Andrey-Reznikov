@@ -6,8 +6,8 @@ public class Lecture extends Superclass {
     private Homework nameHomework;
     private AdditionalMaterial nameMaterials;
 
-   private static int personId;//11
-   public Role role;
+    private int personId;//11
+    public Role role;
 
     private int courseId;
 
@@ -68,7 +68,7 @@ public class Lecture extends Superclass {
     }//10
 
     //11
-    public static int getPersonId() {
+    public int getPersonId() {
         return personId;
     }
     public void setPersonId(int personId) {

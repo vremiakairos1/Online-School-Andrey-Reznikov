@@ -50,14 +50,15 @@ public class RepositoryGeneric <E extends Superclass> {
 
     // метод проверяет на пустоту весь массив
     public boolean isEmpty() {
-        boolean emptySize = false;
-        if (newSize == 0) {
-            emptySize = true;
+    boolean emptySize = false;
+    if (newSize == 0) {
+        emptySize = true;
         }
         return emptySize;
     }
-    // метод получает индекс массива - в задании в параметре говорится int index 60??
-    public E getIndex(int index){
+
+    // метод получает индекс массива
+    public E get(int index) {
         for (int i = 0; i < arraySuperclass.length; i++) {
             if (i==index){
                 break;
@@ -67,16 +68,16 @@ public class RepositoryGeneric <E extends Superclass> {
         return null;
     }
 
-    // метод добавляет элемент в массив.
+    // метод заполняет массив
     public void add(E fillIN) {
         for (int i = 0; i<arraySuperclass.length; i++) {
-            if (arraySuperclass[i] != null) {
-                continue;
+            if (arraySuperclass[i] == null) {
+                arraySuperclass[i] = (E) fillIN;
+                break;
             }
-            arraySuperclass[i] = (E) fillIN;
-            break;
         }
     }
+
     // метод добавляет элементы по индексу
     public void addIndex(int index,E fillIN) {
         for (int i = 0; i<arraySuperclass.length; i++) {
@@ -85,8 +86,8 @@ public class RepositoryGeneric <E extends Superclass> {
                 break;
             }
         }
-
     }
+
     // метод удаляет элемент по индексу, но не сдвиагает элементы
     public void remove(int index){
         for (int i = 0; i < arraySuperclass.length; i++) {
@@ -97,4 +98,5 @@ public class RepositoryGeneric <E extends Superclass> {
             }
         }
     }
+
 }

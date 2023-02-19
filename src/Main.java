@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 import static repository.RepositoryLecture.*;
-
+import static service.ServiceMenu.dialog2;
 public class Main {
     public static Course firstCourse;//для доступа к ID курса из другого класса
                                      // или не из области видимости метода main
@@ -46,41 +46,27 @@ public class Main {
         //7
         Scanner scanner = new Scanner(System.in);
         int exit;//для возврата в меню или завершения
-        menu(); //- создает меню для выбора категорий
-        choiceOfCategory(); //- обрабатывает выбор категорий
-        dialog1(); //- первый диалог про создание лекции
-        severalLectures(); //- создает несколько лекций
-        orderLecture(); //- запрашиваем и выводим данные лекции
-        ServiceMenu.dialog2(); //- диалог создать еще лекцию
+        //menu(); //- создает меню для выбора категорий
+        //ServiceMenu.dialog2(); //- диалог создать еще лекцию
         createLecture = scanner.nextInt();
-        ServiceMenu.dialogExit(); //- после создания лекций вернуться в меню или завершить программу
-        //
-
-        menu();
-        choiceOfCategory();
-
-        dialog1();
-        severalLectures();
-
         //После создания лекций или вернуться в меню или завершить программу.
-        ServiceMenu.dialogExit();
 
         //Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
-        exit = scanner.nextInt();
+        /*exit = scanner.nextInt();
         while (exit == 0 || exit > 1) {
             break;
         }
         if (exit == 1) {
-            menu();
-            choiceOfCategory();
-            dialog1();
-            severalLectures();
+            //menu();
+            //choiceOfCategory();
+            //dialog1();
+            //severalLectures();
             ServiceMenu.dialogExit();
         }
         exit = scanner.nextInt();
         while (exit == 0 || exit > 1) {
             break;
-        }
+        }*/
 
         //-----9
         RepositoryLecture.fullArrayLecture();
@@ -125,26 +111,24 @@ public class Main {
     }
 
       //------ область видимости за пределами класса мейн
-      static int category;//для выбора категории мен.
-      // Объявляем за пределами метода main чтобы создать и воспользоваться методами
-      static int selected;//для выбора создания лекции в первый раз
       static int idLectures;//для считывания ID лекции и пеередачи ее в параметр объекта лекции
       static int createLecture;//для выбора создания лекции во второй раз
     //7
       static Scanner scanner = new Scanner(System.in);
       //static int elementsArray2;// отображать элементы 2-ого массива
 
-    public static void menu() {
+    /*public static void menu() {
            System.out.println("Выберите категорию");
            System.out.println("1 Курсы");
            System.out.println("2 Учителя");
            System.out.println("3 Студенты");
            System.out.println("4 Лекции");
            System.out.println("0 Выйти");
-        category = scanner.nextInt();
-    }
+           int category = scanner.nextInt();
+           choiceOfCategory(category);
+    }*/
 
-    public static void choiceOfCategory() {
+    /*public static void choiceOfCategory(int category) {
         switch (category) {
             case 0:
                 System.out.println("Программа завершилась");
@@ -166,6 +150,7 @@ public class Main {
 
             case 4:
                 System.out.println("Вы выбрали Лекции");
+                dialog1(); //- первый диалог про создание лекции
                 break;
 
             default:
@@ -202,17 +187,18 @@ public class Main {
                     break;
                 }
         }
-    }
+    }*/
 
-    public static void dialog1() {
+    /*public static void dialog1() {
         System.out.println("Создать лекцию?");
         System.out.println("0 Нет");
         System.out.println("1 Да");
-        selected = scanner.nextInt();
-    }
+        int selected = scanner.nextInt();
+        severalLectures(selected);
+    }*/
 
     //7
-    public static void severalLectures() {
+    /*public static void severalLectures(int selected) {
 
         switch (selected) {
             case 0:
@@ -236,6 +222,7 @@ public class Main {
                     if (Lecture.getCounterLectures() == 9) {
                         System.out.println("Вы достигли лимита по созданию лекций.");
                         //System.exit(0);//завершить программу
+                        ServiceMenu.dialogExit(); //- после создания лекций вернуться в меню или завершить программу
                     }
                     break;
                 }
@@ -244,9 +231,9 @@ public class Main {
                 throw new IllegalStateException("Unexpected value: " + selected);
 
         }
-    }
+    }*/
 
-    public static void orderLecture() {
+    /*public static void orderLecture() {
         System.out.println("Введите ID лекции");
         idLectures = scanner.nextInt();
         //Lecture nLecture = new Lecture(idLectures, firstCourse.getID(),1);
@@ -255,7 +242,7 @@ public class Main {
         System.out.println(firstCourse.getID());
         System.out.println(Lecture.getCounterLectures());
         System.out.println(Arrays.toString(RepositoryLecture.getArrayLecture()));
-    }
+    }*/
 
 }
 

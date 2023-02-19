@@ -16,20 +16,6 @@ public class Course extends Superclass {
     }
 
     //10
-    public Teacher getLastNameTeacher() {
-        return lastNameTeacher;
-    }
-    public void setLastNameTeacher(Teacher lastNameTeacher) {
-        this.lastNameTeacher = lastNameTeacher;
-    }
-
-    public Student getLastNameStudent() {
-        return lastNameStudent;
-    }
-    public void setLastNameStudent(Student lastNameStudent) {
-        this.lastNameStudent = lastNameStudent;
-    }
-
     public Lecture getNameLecture() {
         return nameLecture;
     }

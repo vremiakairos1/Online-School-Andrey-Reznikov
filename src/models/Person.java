@@ -6,6 +6,7 @@ public class Person extends Superclass {
 
     private static int counter = 0;
     private int courseId;
+    private int lectureId;
     private Role role;
     private String lastname = "Default";//12
     private String firstname = "Default";//12
@@ -33,5 +34,9 @@ public class Person extends Superclass {
     public Person(int id) {
         super(id);
         this.role = TEACHER;
+    }
+
+    public void setLectureId(int lectureId) {
+        this.lectureId = lectureId;
     }
 }

@@ -6,7 +6,8 @@ import models.Lecture;
 import models.Superclass;
 import service.ServiceLecture;
 
-public class RepositoryLecture extends SuperRepository {
+public class RepositoryLecture implements RepositoryInterface <Lecture> {
+
 
     private static int SIZE_ARRAY = 5;
 
@@ -30,6 +31,7 @@ public class RepositoryLecture extends SuperRepository {
                 fullOF++;
                 if (fullOF == arrayLecture.length) {
                     System.out.println("Количество заполненных элементов " + fullOF);
+                    increaseSIZE();
                     break;
                 }
             }
@@ -115,25 +117,12 @@ public class RepositoryLecture extends SuperRepository {
                 throw new IllegalArgumentException("Unexpected value: " + elementsArray2);
         }
     }//9
-
-    @Override
-    public Lecture[] getALL() {
+        public Lecture[] getALL() {
         return arrayLecture;
     }
 
-    //метод имеет параметр суперкласса моделей. Перегружает метод из супер-репозитория. Заполняет массив в этом классе
-    @Override
-    public void add(Superclass fillIN) {
-        for (int i = 0; i<arrayLecture.length; i++) {
-            if (arrayLecture[i] == null) {
-                arrayLecture[i] = (Lecture) fillIN;
-                break;
-            }
-        }
-    }
-
     //метод сравнивает ID для открытия объекта. Перегружает метод из супер-репозитория.
-    @Override
+
     public void getByID(int ID) {
         for (Superclass openLecture : arrayLecture) {
             if (openLecture != null) {
@@ -145,7 +134,7 @@ public class RepositoryLecture extends SuperRepository {
     }
 
     //метод удаляет объект с таким ID, но не сдвигает элементы. Перегружает метод из супер-репозитория.
-    @Override
+
     public void deleteByID(int ID) {
         for (int i = 0; i < arrayLecture.length; i++) {
             if (arrayLecture[i] != null) {
@@ -156,17 +145,62 @@ public class RepositoryLecture extends SuperRepository {
         }
     }
 
-   //11 пока не выходит
-    public void changeParameter(int personID) {
-        for (Superclass openLecture : arrayLecture) {
-            if (openLecture != null) {
-                if (personID==openLecture.getID()) {
-                    System.out.println(openLecture);
-                }
+    @Override
+    public int size()
+    {
+        return newSize;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        boolean emptySize = false;
+        if (newSize == 0) {
+            emptySize = true;
+        }
+        return emptySize;
+    }
+
+    @Override
+    public Lecture get(int index) {
+        for (int i = 0; i < arrayLecture.length; i++) {
+            if (i==index){
+                break;
+            }
+            return (Lecture) arrayLecture [i];
+        }
+        return null;
+    }
+    //метод имеет параметр суперкласса моделей. Перегружает метод из супер-репозитория. Заполняет массив в этом классе
+    @Override
+    public void add(Superclass fillIN) {
+        for (int i = 0; i<arrayLecture.length; i++) {
+            if (arrayLecture[i] == null) {
+                arrayLecture[i] = (Lecture) fillIN;
+                break;
             }
         }
     }
 
+    @Override
+    public void addIndex(int index,Superclass fillIN) {
+        for (int i = 0; i<arrayLecture.length; i++) {
+            if (arrayLecture[index] == null) {
+                arrayLecture[index] = (Lecture) fillIN;
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void remove(int index){
+        for (int i = 0; i < arrayLecture.length; i++) {
+            if (arrayLecture[i] != null) {
+                if (index == arrayLecture[i].getID()) {
+                    arrayLecture[i] = null;
+                }
+            }
+        }
+    }
 
 }
 

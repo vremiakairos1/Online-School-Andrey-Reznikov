@@ -1,7 +1,9 @@
 package service;
 import models.Course;
 import models.Lecture;
+import models.Person;
 import repository.RepositoryLecture;
+import repository.RepositoryPerson;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,6 +11,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class ServiceMenu {
+    private final static RepositoryPerson REPOSITORY_PERSON = new RepositoryPerson();
     public static Course firstCourse = new Course(1, "Java Basics");
     static int category;//для выбора категории мен.
     // Объявляем за пределами метода main чтобы создать и воспользоваться методами
@@ -27,9 +30,10 @@ public class ServiceMenu {
         System.out.println("4 Лекции");
         System.out.println("0 Выйти");
         category = scanner.nextInt();
+        choiceOfCategory(category);
     }
 
-    public static void choiceOfCategory() {
+    public static void choiceOfCategory(int category) {
         switch (category) {
             case 0:
                 System.out.println("Программа завершилась");
@@ -43,7 +47,8 @@ public class ServiceMenu {
 
             case 2:
                 System.out.println("Вы выбрали Учителя");
-                ServicePerson.dialogCreateTeacher();
+                Person teacher = createTeacherDialog();
+                updateLectureMenu(teacher);
                 break;
 
             case 3:
@@ -52,7 +57,7 @@ public class ServiceMenu {
 
             case 4:
                 System.out.println("Вы выбрали Лекции");
-                orderLecture();
+                dialog1(); //- первый диалог про создание лекции
                 break;
 
             default:
@@ -95,8 +100,33 @@ public class ServiceMenu {
         System.out.println("Создать лекцию?");
         System.out.println("0 Нет");
         System.out.println("1 Да");
-        lectureId = scanner.nextInt();
-        severalLectures(lectureId);
+        int selected = scanner.nextInt();
+        severalLectures(selected);
+    }
+
+    public static Person createTeacherDialog() {
+        System.out.println("Создать учителя?");
+        System.out.println("0 Нет");
+        System.out.println("1 Да");
+        int selected = scanner.nextInt();
+        return readTeacher(selected);
+    }
+
+    public static Person readTeacher(int choice) {
+        Person teacher = null;
+
+        switch (choice) {
+            case 0:
+                break;
+            case 1:
+                System.out.println("Введите ID учителя");
+                int teacherId = scanner.nextInt();
+                teacher = ServicePerson.createLimitTeacher(teacherId);
+                REPOSITORY_PERSON.add(teacher);
+                break;
+        }
+
+        return teacher;
     }
 
     public static void dialogUpdateLecture() {
@@ -112,7 +142,7 @@ public class ServiceMenu {
         switch (selected) {
             case 0:
                 System.out.println("Вы выбрали не создавать лекцию");
-                return;
+                break;
             case 1:
                 System.out.println("Вы выбрали создать лекцию");
                 //беру название переменной из класса Лекция конструктора для лекции
@@ -150,7 +180,6 @@ public class ServiceMenu {
         System.out.println(firstCourse.getID());
         System.out.println(Lecture.getCounterLectures());
         System.out.println(Arrays.toString(RepositoryLecture.getArrayLecture()));
-        dialog2();
     }
 
     //8
@@ -161,6 +190,40 @@ public class ServiceMenu {
         int choice = scanner.nextInt();
         if (choice == 2) {
             orderLecture();
+        }
+    }
+    //11
+    public static void updateLectureMenu(Person teacher) {
+        System.out.println("Желаете отредактировать лекцию?");
+        System.out.println("0 Нет");
+        System.out.println("1 Да");
+        int choice = scanner.nextInt();
+        updateLecture(choice, teacher);
+    }
+
+    //11
+    public static void updateLecture(int selected, Person teacher) {
+        switch (selected) {
+            case 0:
+                System.out.println("Вы выбрали не редактировать лекцию");
+                break;
+            case 1:
+                System.out.println("Введите ID лекции от 1 до 5");
+                int lectureId = scanner.nextInt();
+                Lecture[] lectures = new RepositoryLecture().getALL();
+
+                Lecture lecture = null;
+
+                for (Lecture lect : lectures) {
+                    if (lect.getID() == lectureId) {
+                        lecture = lect;
+                    }
+                }
+
+                lecture.setPersonId(teacher.getID());
+
+                teacher.setLectureId(lectureId);
+                break;
         }
     }
 
