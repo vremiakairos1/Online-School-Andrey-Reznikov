@@ -3,8 +3,8 @@ package models;
 public class Course extends Superclass {
 
     public static int counterCourse1;
-    private Teacher lastNameTeacher;
-    private Student lastNameStudent;
+    private String lastNameTeacher;
+    private String lastNameStudent;
     private Lecture nameLecture;
     private String name;//12
 
