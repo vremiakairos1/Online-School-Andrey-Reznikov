@@ -25,17 +25,19 @@ public class Person extends Superclass {
         //this.role = role;
         counter++;
     }
+    //11
     public Person(int ID, int courseId, Role role) {
         super(ID);
         this.courseId = courseId;
         //this.role = role;
     }
 
+    //11
     public Person(int id) {
         super(id);
         this.role = TEACHER;
     }
-
+    //11
     public void setLectureId(int lectureId) {
         this.lectureId = lectureId;
     }

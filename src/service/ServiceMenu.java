@@ -1,7 +1,9 @@
 package service;
 import models.Course;
+import models.Homework;
 import models.Lecture;
 import models.Person;
+import repository.RepositoryHomework;
 import repository.RepositoryLecture;
 import repository.RepositoryPerson;
 
@@ -11,7 +13,8 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class ServiceMenu {
-    private final static RepositoryPerson REPOSITORY_PERSON = new RepositoryPerson();
+    private final static RepositoryPerson REPOSITORY_PERSON = new RepositoryPerson();//11
+    private final static RepositoryHomework REPOSITORY_HOMEWORK = new RepositoryHomework();//14
     public static Course firstCourse = new Course(1, "Java Basics");
     static int category;//для выбора категории мен.
     // Объявляем за пределами метода main чтобы создать и воспользоваться методами
@@ -58,6 +61,8 @@ public class ServiceMenu {
             case 4:
                 System.out.println("Вы выбрали Лекции");
                 dialog1(); //- первый диалог про создание лекции
+                Homework homework = ServiceHomework.createHomeworkDialog();
+
                 break;
 
             default:

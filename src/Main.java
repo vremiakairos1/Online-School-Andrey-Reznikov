@@ -15,6 +15,8 @@ import java.util.regex.Matcher;
 
 import static repository.RepositoryLecture.*;
 import static service.ServiceMenu.dialog2;
+import static service.ServiceMenu.menu;
+
 public class Main {
     public static Course firstCourse;//для доступа к ID курса из другого класса
                                      // или не из области видимости метода main
@@ -46,9 +48,9 @@ public class Main {
         //7
         Scanner scanner = new Scanner(System.in);
         int exit;//для возврата в меню или завершения
-        //menu(); //- создает меню для выбора категорий
-        //ServiceMenu.dialog2(); //- диалог создать еще лекцию
-        //createLecture = scanner.nextInt();
+        menu(); //- создает меню для выбора категорий
+        ServiceMenu.dialog2(); //- диалог создать еще лекцию
+        int createLecture = scanner.nextInt();
         //После создания лекций или вернуться в меню или завершить программу.
 
         //Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
@@ -103,7 +105,7 @@ public class Main {
 
 //scanner.close();
 
-        ServiceMenu.menu();
+        menu();
         ServiceMenu.dialog1(); //- первый диалог про создание лекции
 //        ServiceMenu.orderLecture(); //- запрашиваем и выводим данные лекции
 //        ServiceMenu.dialog2(); //- диалог создать еще лекцию

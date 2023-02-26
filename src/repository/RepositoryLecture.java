@@ -2,6 +2,7 @@ package repository;
 
 import com.sun.tools.javac.Main;
 import models.Course;
+import models.Homework;
 import models.Lecture;
 import models.Superclass;
 import service.ServiceLecture;
@@ -16,10 +17,21 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
     private static Lecture[] increaseArray;// увеличенный массив
     private static int fullOF=0;// для проверки заполненности всего исходного массива
 
+    //14
+    //массив для работы с домашками
+    private static int SIZE_ARRAY_HOMEWORK = 5;
+
+    private static Homework[] arrayHomework;//исходный массив
+    private static int newSizeHomework;//переменная для нового массива
+    private static Homework[] increaseArrayHomework;// увеличенный массив
+    private static int fullOFHomework = 0;// для проверки заполненности всего исходного массива
+
     public RepositoryLecture() {
 
         this.arrayLecture = new Lecture[SIZE_ARRAY];//передали переменную 5
         this.increaseArray = new Lecture[newSize];// передали переменную для нового массива
+        this.arrayLecture = new Lecture[SIZE_ARRAY_HOMEWORK];//передали переменную 5
+        this.increaseArray = new Lecture[newSizeHomework];// передали переменную для нового массива
 
     }
 
@@ -144,13 +156,13 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
             }
         }
     }
-
+    //14
     @Override
     public int size()
     {
         return newSize;
     }
-
+    //14
     @Override
     public boolean isEmpty() {
         boolean emptySize = false;
@@ -159,7 +171,7 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
         }
         return emptySize;
     }
-
+    //14
     @Override
     public Lecture get(int index) {
         for (int i = 0; i < arrayLecture.length; i++) {
@@ -171,6 +183,7 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
         return null;
     }
     //метод имеет параметр суперкласса моделей. Перегружает метод из супер-репозитория. Заполняет массив в этом классе
+    //14
     @Override
     public void add(Superclass fillIN) {
         for (int i = 0; i<arrayLecture.length; i++) {
@@ -180,7 +193,7 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
             }
         }
     }
-
+    //14
     @Override
     public void addIndex(int index,Superclass fillIN) {
         for (int i = 0; i<arrayLecture.length; i++) {
@@ -190,7 +203,7 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
             }
         }
     }
-
+    //14
     @Override
     public void remove(int index){
         for (int i = 0; i < arrayLecture.length; i++) {
@@ -202,5 +215,30 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
         }
     }
 
+    //14
+    public static void fullArrayHomework(){
+        for (int i=0; i<arrayHomework.length; i++) {
+            fullOF = 0;
+            fullOF = i;
+            if (arrayHomework[i] != null) {
+                fullOF++;
+                if (fullOF == arrayHomework.length) {
+                    System.out.println("Количество заполненных элементов " + fullOF);
+                    increaseSIZE();
+                    break;
+                }
+            }
+        }
+    }
+
+    //14
+    public void addHomework(Superclass fillIN) {
+        for (int i = 0; i<arrayHomework.length; i++) {
+            if (arrayHomework[i] == null) {
+                arrayHomework[i] = (Homework) fillIN;
+                break;
+            }
+        }
+    }
 }
 

@@ -14,6 +14,8 @@ public class Lecture extends Superclass {
     private String name;//12
     private String description;//12
 
+    private int homeworkId;//14
+
     public Lecture (int ID, String name, String description, int courseId, int personId, Role role)//11-12
     {
         super(ID);
@@ -25,7 +27,7 @@ public class Lecture extends Superclass {
         this.name = description;
         counterLectures++;
     }
-
+    //11
     public Lecture (int id, int courseId) {
         super(id);
         this.courseId = courseId;
@@ -78,5 +80,9 @@ public class Lecture extends Superclass {
     public void setRole(Role role) {
         this.role = role;
     }
-}
 
+    //14
+    public void setHomeworkId(int homeworkId) {
+        this.homeworkId = homeworkId;
+    }
+}
