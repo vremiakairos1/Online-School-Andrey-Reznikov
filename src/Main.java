@@ -52,7 +52,6 @@ public class Main {
         ServiceMenu.dialog2(); //- диалог создать еще лекцию
         int createLecture = scanner.nextInt();
         //После создания лекций или вернуться в меню или завершить программу.
-
         //Пока считанный результат 0 ИЛИ больше 1 прервать работу программы
         /*exit = scanner.nextInt();
         while (exit == 0 || exit > 1) {
