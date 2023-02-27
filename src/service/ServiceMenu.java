@@ -98,6 +98,7 @@ public class ServiceMenu {
                     System.out.println("Вы выбрали Лекции");
                     break;
                 }
+            throw new IllegalStateException("Unexpected value");
         }
     }
 

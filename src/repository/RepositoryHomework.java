@@ -49,6 +49,10 @@ public class RepositoryHomework implements RepositoryInterface <Homework>{
                 if (ID==openLecture.getID()) {
                     System.out.println(openLecture);
                 }
+                //15
+                if (ID <= 0 && openLecture.getID() != ID) {
+                    throw new EntityNotFoundException("Такого ID не существует");
+                }
             }
         }
     }//написать override
