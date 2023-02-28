@@ -45,7 +45,7 @@ public class Main {
         System.out.println(Lecture.getCounterLectures());*/
 
 
-        //7
+        //7/
         Scanner scanner = new Scanner(System.in);
         int exit;//для возврата в меню или завершения
         menu(); //- создает меню для выбора категорий
