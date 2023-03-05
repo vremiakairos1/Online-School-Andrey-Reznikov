@@ -1,3 +1,4 @@
+import iteraror.SimpleIterator;
 import models.Course;
 import models.Lecture;
 import models.Person;
@@ -8,12 +9,14 @@ import service.ServiceLecture;
 import service.ServiceMenu;
 import service.ServicePerson;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 import static repository.RepositoryLecture.*;
+import static repository.RepositoryLecture.arrayLecture;
 import static service.ServiceMenu.dialog2;
 import static service.ServiceMenu.menu;
 
@@ -109,7 +112,21 @@ public class Main {
 //        ServiceMenu.orderLecture(); //- запрашиваем и выводим данные лекции
 //        ServiceMenu.dialog2(); //- диалог создать еще лекцию
         ServiceMenu.dialogExit(); //- после создания лекций вернуться в меню или завершить программу
+
+        //16
+        Lecture[] arrayLecture = new RepositoryLecture().getArrayLecture();
+        findAll(arrayLecture);
+        ArrayList<Lecture> lecturesList = new ArrayList<>();
+        lecturesList.iterator();
+
     }
+    //16
+public static void findAll(Lecture[] arrayLecture){
+    SimpleIterator iterator = new SimpleIterator(arrayLecture);
+    while (iterator.hasNext()) {
+        System.out.println(iterator.next());
+    }
+}
 
 }
 

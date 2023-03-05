@@ -12,7 +12,7 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
 
     private static int SIZE_ARRAY = 5;
 
-    private static Lecture[] arrayLecture;//исходный массив
+    public static Lecture[] arrayLecture;//исходный массив
     private static int newSize;//переменная для нового массива
     private static Lecture[] increaseArray;// увеличенный массив
     private static int fullOF=0;// для проверки заполненности всего исходного массива

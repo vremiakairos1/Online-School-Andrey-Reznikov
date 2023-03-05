@@ -1,7 +1,7 @@
 package models;
 
 public class Superclass {
-    private int ID;
+    private Integer ID;//16
 
 
     public Superclass(int ID) {
