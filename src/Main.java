@@ -120,7 +120,7 @@ public class Main {
         lecturesList.iterator();
 
     }
-    //16
+    //16/
 public static void findAll(Lecture[] arrayLecture){
     SimpleIterator iterator = new SimpleIterator(arrayLecture);
     while (iterator.hasNext()) {
