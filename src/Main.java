@@ -1,8 +1,5 @@
 import iteraror.SimpleIterator;
-import models.Course;
-import models.Lecture;
-import models.Person;
-import models.Role;
+import models.*;
 import repository.RepositoryGeneric;
 import repository.RepositoryLecture;
 import service.ServiceLecture;
@@ -47,6 +44,7 @@ public class Main {
 
         System.out.println(Lecture.getCounterLectures());*/
 
+        AdditionalMaterial aMaterial = new AdditionalMaterial(1,1, "Java Basics", MaterialStatus.URL);//17
 
         //7/
         Scanner scanner = new Scanner(System.in);

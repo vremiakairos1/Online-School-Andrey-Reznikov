@@ -7,6 +7,9 @@ import models.Lecture;
 import models.Superclass;
 import service.ServiceLecture;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class RepositoryLecture implements RepositoryInterface <Lecture> {
 
 
@@ -25,6 +28,7 @@ public class RepositoryLecture implements RepositoryInterface <Lecture> {
     private static int newSizeHomework;//переменная для нового массива
     private static Homework[] increaseArrayHomework;// увеличенный массив
     private static int fullOFHomework = 0;// для проверки заполненности всего исходного массива
+    ArrayList<Lecture> arrayListLecture = new ArrayList<Lecture>(Arrays.asList(arrayLecture));//17
 
     public RepositoryLecture() {
 

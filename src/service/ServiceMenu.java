@@ -62,6 +62,7 @@ public class ServiceMenu {
                 System.out.println("Вы выбрали Лекции");
                 dialog1(); //- первый диалог про создание лекции
                 Homework homework = ServiceHomework.createHomeworkDialog();
+                ServiceAdditionalMaterial.createMaterialDialog();//17
 
                 break;
 

@@ -9,12 +9,13 @@ public class Lecture extends Superclass {
     private int personId;//11
     public Role role;
 
-    private int courseId;
+    private int courseId;//11
 
     private String name;//12
     private String description;//12
 
     private int homeworkId;//14
+    private int aMaterialId;//17
 
     public Lecture (int ID, String name, String description, int courseId, int personId, Role role)//11-12
     {
@@ -84,5 +85,10 @@ public class Lecture extends Superclass {
     //14
     public void setHomeworkId(int homeworkId) {
         this.homeworkId = homeworkId;
+    }
+
+    //17
+    public void setaMaterialId(int aMaterialId) {
+        this.aMaterialId = aMaterialId;
     }
 }
